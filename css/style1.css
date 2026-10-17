@@ -1,0 +1,296 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #8E8E8E;
+    color: #FFF;
+    max-width: 1280px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.containerpramokutnik {
+    display: flex; /* Робить блоки в ряд */
+    gap: 15px;     /* Відстань між прямокутниками */
+}
+
+.boxpramokutnik {
+    width: 200px;         /* Ширина прямокутника */
+    height: 100px;        /* Висота прямокутника */
+    background-color: #809080; /* Колір фону */
+    color: white;         /* Колір тексту */
+    display: flex;        /* Центруємо текст всередині */
+    align-items: center;  /* Вертикальне вирівнювання */
+    justify-content: center; /* Горизонтальне вирівнювання */
+    border-radius: 4px;   /* Заокруглені кути (за бажанням) */
+}
+/*Карусель*/
+/* Контейнер всього розділу */
+.reviews-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Заголовок розділу */
+.reviews-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.reviews-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #007bff;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Контейнер каруселі (чистий CSS CSS-scroll-snap) */
+.reviews-carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 10px;
+    scrollbar-width: thin; /* Для Firefox */
+    scrollbar-color: #007bff #e0e0e0;
+    scroll-behavior: smooth;
+}
+
+/* Стилізація скроллбару для Chrome/Safari/Edge */
+.reviews-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.reviews-carousel::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+.reviews-carousel::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 4px;
+}
+
+/* Картка відгуку */
+.review-card {
+    flex: 0 0 calc(33.333% - 16px); /* 3 картки на екрані */
+    min-width: 280px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    scroll-snap-align: start;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Текст відгуку */
+.review-text {
+    font-style: italic;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Автор відгуку */
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+    object-fit: cover;
+}
+
+.author-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+}
+
+.author-info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #007bff;
+    font-weight: 600;
+}
+
+/* Адаптивність */
+@media (max-width: 992px) {
+    .review-card {
+        flex: 0 0 calc(50% - 12px); /* 2 картки на екрані */
+    }
+}
+
+@media (max-width: 600px) {
+    .review-card {
+        flex: 0 0 100%; /* 1 картка на екрані */
+    }
+    .reviews-title {
+        font-size: 2rem;
+    }
+}
+
+/* Головний контейнер розділу */
+.science-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Дві рівні частини */
+    gap: 40px;
+    align-items: center;
+}
+
+/* ЛІВА ЧАСТИНА: Сітка для 3-х картинок у 2 ряди */
+.left-side {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Два стовпчики */
+    gap: 15px;
+}
+
+/* Перша картинка займає два ряди у висоту для гарного візуального балансу */
+.left-side .img-large {
+    grid-row: span 2;
+    height: 100%;
+    min-height: 300px;
+}
+
+.left-side img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.left-side img:hover {
+    transform: scale(1.03);
+}
+
+/* ПРАВА ЧАСТИНА: Контент та фінальне зображення */
+.right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.subtitle {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0076fe;
+    letter-spacing: 1px;
+}
+
+.title {
+    font-size: 36px;
+    color: #111;
+    line-height: 1.2;
+}
+
+.description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.btn {
+    align-self: flex-start;
+    padding: 12px 28px;
+    background-color: #0076fe;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.right-side .main-feature-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Адаптивність для планшетів та смартфонів */
+@media (max-width: 768px) {
+    .science-section {
+        grid-template-columns: 1fr; /* Перехід в один стовпчик */
+        gap: 30px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+}
+
+
+.site-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-contacts p {
+    margin: 5px 0;
+}
+
+.footer-contacts a {
+    color: #fff;
+    text-decoration: none;
+}
+
+ .inline-list {
+     display: flex;
+     list-style: none; /* убирает точки списка */
+     gap: 15px;        /* расстояние между элементами */
+     margin: 0;
+     padding: 0;
+ }
+.container {
+    display: flex;
+    align-items: center; /* выравнивание по центру по вертикали */
+    gap: 15px; /* отступ между картинкой и списком */
+}
+.site-header {
+    background-color: #dfdffd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 2px 0;
+    font-family: Arial, sans-serif;
+}
